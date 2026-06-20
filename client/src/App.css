@@ -1,0 +1,180 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6f9;
+}
+
+.auth-card {
+  background: white;
+  padding: 30px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  padding: 30px;
+  background: #f4f6f9;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header h1 {
+  color: #1f2937;
+}
+
+.dashboard-header button {
+  padding: 10px 20px;
+  border: none;
+  background: crimson;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dashboard-cards {
+  margin-top: 40px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 20px;
+}
+
+.card {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+  text-align: center;
+}
+
+.card h2 {
+  color: #2563eb;
+  font-size: 40px;
+}
+
+.card p {
+  margin-top: 10px;
+}
+
+.events-page {
+  padding: 30px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 12px;
+  margin: 20px 0;
+}
+
+.event-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 20px;
+}
+
+.event-card {
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 0 10px rgba(0,0,0,0.1);
+}
+
+.event-card h2 {
+  color: #2563eb;
+}
+
+.event-card p {
+  margin: 10px 0;
+}
+
+.event-card button {
+  width: 100%;
+
+  padding: 10px;
+
+  background: #2563eb;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.navbar {
+  background: #2563eb;
+
+  color: white;
+
+  padding: 15px 30px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
