@@ -44,6 +44,12 @@ app.use(
   "/api/certificates",
   certificateRoutes
 );
+app.use(
+  "/certificates-files",
+  express.static(
+    "certificates"
+  )
+);
 app.use("/api/test", testRoute);
 app.get("/", (req, res) => {
   res.send("College Event Management API Running");

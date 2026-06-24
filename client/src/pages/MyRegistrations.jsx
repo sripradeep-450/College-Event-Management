@@ -4,7 +4,12 @@ import Layout from "../components/Layout";
 
 function MyRegistrations() {
   const [registrations,
-    setRegistrations] = useState([]);
+  setRegistrations] =
+  useState([]);
+
+  const [attendanceMap,
+  setAttendanceMap] =
+  useState({});
 
   useEffect(() => {
     fetchRegistrations();
@@ -27,6 +32,26 @@ function MyRegistrations() {
 
         setRegistrations(
           res.data
+        );
+        const attendanceRes =
+          await API.get(
+            `/attendance/student/${student._id}`
+          );
+
+        const map = {};
+
+        attendanceRes.data.forEach(
+          (item) => {
+
+            map[
+              item.eventId._id
+            ] = item.status;
+
+          }
+        );
+
+        setAttendanceMap(
+          map
         );
       } catch (error) {
         console.log(error);
@@ -59,9 +84,27 @@ function MyRegistrations() {
             </h2>
 
             <p>
-              Status:
+              Registration Status:
+              {registration.status}
+            </p>
+
+            <p>
+              Attendance:
               {
-                registration.status
+                attendanceMap[
+                  registration.eventId._id
+                ] || "Pending"
+              }
+            </p>
+
+            <p>
+              Event Date:
+              {
+                new Date(
+                  registration
+                    .eventId
+                    .date
+                ).toLocaleDateString()
               }
             </p>
           </div>

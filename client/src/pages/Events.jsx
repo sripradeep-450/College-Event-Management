@@ -96,11 +96,65 @@ function Events() {
               {event.category}
             </p>
 
+            <p>
+              Date:
+              <p>
+                Date:
+                {new Date(
+                  event.date
+                ).toLocaleDateString()}
+              </p>
+              <p>
+                Remaining Seats:
+                {event.remainingSeats}
+              </p>
+              {
+                event.remainingSeats > 0 ? (
+                  <p
+                    style={{
+                      color: "green",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Seats Available
+                  </p>
+                ) : (
+                  <p
+                    style={{
+                      color: "red",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Event Full
+                  </p>
+                )
+              }
+              {new Date(event.date) >
+              new Date() && (
+                <p
+                  style={{
+                    color: "green",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Upcoming Event
+                </p>
+              )}
+            </p>
+
             <button
+              disabled={
+                event.remainingSeats <= 0
+              }
               onClick={() =>
                 registerEvent(event._id)
-              }>
-              Register
+              }
+            >
+              {
+                event.remainingSeats <= 0
+                  ? "Event Full"
+                  : "Register"
+              }
             </button>
           </div>
         ))}

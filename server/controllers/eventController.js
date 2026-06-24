@@ -1,5 +1,5 @@
 const Event = require("../models/Event");
-
+const Attendance = require("../models/Attendance");
 exports.createEvent = async (req, res) => {
   try {
     const event = await Event.create(req.body);
@@ -17,13 +17,33 @@ exports.createEvent = async (req, res) => {
 
 exports.getEvents = async (req, res) => {
   try {
-    const events = await Event.find();
 
-    res.status(200).json(events);
+    const events =
+      await Event.find();
+
+    const updatedEvents =
+      events.map((event) => {
+
+        const obj =
+          event.toObject();
+
+        obj.remainingSeats =
+          obj.maxParticipants -
+          obj.registeredCount;
+
+        return obj;
+      });
+
+    res.status(200).json(
+      updatedEvents
+    );
+
   } catch (error) {
+
     res.status(500).json({
       message: error.message,
     });
+
   }
 };
 
@@ -112,4 +132,80 @@ exports.searchEvents =
         message: error.message,
       });
     }
+  };
+  exports.getAttendanceEvents =
+  async (req, res) => {
+
+    try {
+
+      const today =
+        new Date();
+
+      const thirtyDaysAgo =
+        new Date();
+
+      thirtyDaysAgo.setDate(
+        today.getDate() - 30
+      );
+
+      const events =
+        await Event.find({
+          date: {
+            $gte:
+              thirtyDaysAgo,
+            $lte:
+              today,
+          },
+        });
+
+      const result =
+        await Promise.all(
+
+          events.map(
+            async (
+              event
+            ) => {
+
+              const count =
+                await Attendance.countDocuments({
+                  eventId:
+                    event._id,
+                });
+
+              let status =
+                "Pending";
+
+              if (
+                count > 0
+              ) {
+
+                status =
+                  "Correction Window";
+
+              }
+
+              return {
+                ...event.toObject(),
+                attendanceStatus:
+                  status,
+              };
+
+            }
+          )
+
+        );
+
+      res.status(200).json(
+        result
+      );
+
+    } catch (error) {
+
+      res.status(500).json({
+        message:
+          error.message,
+      });
+
+    }
+
   };

@@ -19,6 +19,10 @@ const certificateSchema = new mongoose.Schema(
       unique: true,
     },
 
+    pdfPath: {
+      type: String,
+    },
+
     qrCode: {
       type: String,
     },

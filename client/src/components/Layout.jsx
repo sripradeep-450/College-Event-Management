@@ -1,11 +1,16 @@
-import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 
 function Layout({ children }) {
   return (
-    <>
-      <Navbar />
-      {children}
-    </>
+    <div className="layout-container">
+
+      <Sidebar />
+
+      <div className="main-content">
+        {children}
+      </div>
+
+    </div>
   );
 }
 

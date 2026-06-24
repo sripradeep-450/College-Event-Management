@@ -13,6 +13,7 @@ const {
   deleteEvent,
   getEventsByCategory,
   searchEvents,
+  getAttendanceEvents,
 } = require("../controllers/eventController");
 
 router.post(
@@ -23,7 +24,10 @@ router.post(
 );
 
 router.get("/", getEvents);
-
+router.get(
+  "/attendance-events",
+  getAttendanceEvents
+);
 router.put("/:id", updateEvent);
 
 router.delete("/:id", deleteEvent);

@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import Login from "./pages/Login";
+
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Events from "./pages/Events";
@@ -12,6 +12,10 @@ import MyRegistrations from "./pages/MyRegistrations";
 import Attendance from "./pages/Attendance";
 import Certificates from "./pages/Certificates";
 import Admin from "./pages/Admin";
+import LandingPage from "./pages/LandingPage";
+import StudentLogin from "./pages/StudentLogin";
+import AdminLogin from "./pages/AdminLogin";
+import StudentRegister from "./pages/StudentRegister";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -21,11 +25,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        <Route
-          path="/"
-          element={<Login />}
-        />
 
         <Route
           path="/register"
@@ -83,6 +82,27 @@ function App() {
             <ProtectedRoute>
               <Admin />
             </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={<LandingPage />}
+        />
+
+        <Route
+          path="/student-login"
+          element={<StudentLogin />}
+        />
+
+        <Route
+          path="/admin-login"
+          element={<AdminLogin />}
+        />
+
+        <Route
+          path="/student-register"
+          element={
+            <StudentRegister />
           }
         />
       </Routes>

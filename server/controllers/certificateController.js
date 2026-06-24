@@ -138,3 +138,30 @@ exports.verifyCertificate =
       });
     }
   };
+  exports.getStudentCertificates =
+  async (req, res) => {
+
+    try {
+
+      const certificates =
+        await Certificate.find({
+          studentId:
+            req.params.studentId,
+        })
+        .populate("eventId")
+        .populate("studentId");
+
+      res.status(200).json(
+        certificates
+      );
+
+    } catch (error) {
+
+      res.status(500).json({
+        message:
+          error.message,
+      });
+
+    }
+
+  };
