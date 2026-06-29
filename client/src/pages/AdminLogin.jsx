@@ -1,5 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  FaEnvelope,
+  FaLock,
+  FaEye,
+  FaEyeSlash,
+  FaUserShield,
+} from "react-icons/fa";
+
 import API from "../services/api";
 import adminPhoto from "../assets/adminphoto.png";
 function AdminLogin() {
@@ -63,89 +72,261 @@ function AdminLogin() {
     };
 
   return (
-  <div className="admin-login-page">
 
-    <div className="admin-login-left">
+<div className="flex min-h-screen">
 
-      <img
-        src={adminPhoto}
-        alt="Admin Portal"
-      />
+  {/* LEFT IMAGE */}
 
-      <h1>
-        Administrator Portal
-      </h1>
+  <div className="hidden lg:block w-1/2">
 
-      <p>
-        Manage events,
-        attendance,
-        certificates,
-        registrations
-        and users.
-      </p>
+    <img
+      src={adminPhoto}
+      alt="Admin"
+      className="w-full h-screen object-cover"
+    />
 
-    </div>
+  </div>
 
-    <div className="admin-login-right">
+  {/* RIGHT LOGIN */}
 
-      <form
-        className="admin-login-card"
-        onSubmit={handleLogin}
-      >
+  <div
+    className="
+      w-full
+      lg:w-1/2
+      flex
+      justify-center
+      items-center
+      bg-gradient-to-br
+      from-[#161637]
+      via-[#2d1b69]
+      to-[#4c1d95]
+      p-10
+    "
+  >
 
-        <h2>
-          Admin Login
-        </h2>
+    <motion.form
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) =>
-            setEmail(
-              e.target.value
-            )
-          }
-        />
+      initial={{opacity:0,x:80}}
 
-        <div className="password-box">
+      animate={{opacity:1,x:0}}
 
-          <input
-            type={
-              showPassword
-                ? "text"
-                : "password"
-            }
-            placeholder="Password"
-            value={password}
-            onChange={(e) =>
-              setPassword(
-                e.target.value
-              )
-            }
+      transition={{duration:0.7}}
+
+      onSubmit={handleLogin}
+
+      className="
+        w-[450px]
+        rounded-3xl
+        border
+        border-white/20
+        bg-white/10
+        backdrop-blur-xl
+        shadow-2xl
+        p-10
+      "
+
+    >
+
+      <div className="flex justify-center">
+
+        <div
+          className="
+          w-20
+          h-20
+          rounded-full
+          bg-violet-500/20
+          flex
+          items-center
+          justify-center
+          "
+        >
+
+          <FaUserShield
+            className="text-4xl text-violet-300"
           />
-
-          <span
-            onClick={() =>
-              setShowPassword(
-                !showPassword
-              )
-            }
-          >
-            👁
-          </span>
 
         </div>
 
-        <button type="submit">
-          Login
+      </div>
+
+      <h1
+        className="
+        text-5xl
+        font-bold
+        text-white
+        text-center
+        mt-6
+        "
+      >
+        Admin Portal
+      </h1>
+
+      <p
+        className="
+        text-center
+        text-gray-300
+        mt-3
+        mb-8
+        "
+      >
+        Secure Login for Event Administration
+      </p>
+
+      {/* EMAIL */}
+
+      <div className="relative mb-5">
+
+        <FaEnvelope
+          className="
+          absolute
+          left-4
+          top-4
+          text-gray-300
+          "
+        />
+
+        <input
+
+          type="email"
+
+          placeholder="Email Address"
+
+          value={email}
+
+          onChange={(e)=>setEmail(e.target.value)}
+
+          className="
+          w-full
+          rounded-xl
+          bg-white/10
+          border
+          border-white/20
+          pl-12
+          pr-4
+          py-3
+          text-white
+          placeholder-gray-300
+          outline-none
+          focus:ring-2
+          focus:ring-violet-400
+          "
+
+        />
+
+      </div>
+
+      {/* PASSWORD */}
+
+      <div className="relative">
+
+        <FaLock
+          className="
+          absolute
+          left-4
+          top-4
+          text-gray-300
+          "
+        />
+
+        <input
+
+          type={
+            showPassword
+            ? "text"
+            : "password"
+          }
+
+          placeholder="Password"
+
+          value={password}
+
+          onChange={(e)=>setPassword(e.target.value)}
+
+          className="
+          w-full
+          rounded-xl
+          bg-white/10
+          border
+          border-white/20
+          pl-12
+          pr-12
+          py-3
+          text-white
+          placeholder-gray-300
+          outline-none
+          focus:ring-2
+          focus:ring-violet-400
+          "
+
+        />
+
+        <button
+
+          type="button"
+
+          onClick={()=>setShowPassword(!showPassword)}
+
+          className="
+          absolute
+          right-4
+          top-4
+          text-white
+          "
+
+        >
+
+          {
+            showPassword
+            ? <FaEyeSlash/>
+            : <FaEye/>
+          }
+
         </button>
 
-      </form>
+      </div>
 
-    </div>
+      <button
+
+        className="
+        mt-8
+        w-full
+        rounded-xl
+        bg-gradient-to-r
+        from-violet-600
+        to-fuchsia-500
+        py-3
+        text-lg
+        font-semibold
+        text-white
+        transition
+        hover:scale-105
+        "
+
+      >
+
+        Login
+
+      </button>
+
+      <p
+        className="
+        mt-8
+        text-center
+        text-gray-300
+        text-sm
+        "
+      >
+
+        College Event Management System
+
+      </p>
+
+    </motion.form>
 
   </div>
+
+</div>
+
 );
 }
 

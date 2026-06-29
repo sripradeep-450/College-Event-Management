@@ -179,122 +179,6 @@
   text-decoration: underline;
 }
 
-/* Full Screen Landing Background */
-
-.landing-page{
-  min-height:100vh;
-
-  background-image:
-    url("./assets/eventmanagement.png");
-
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-
-  position:relative;
-}
-
-/* Dark overlay */
-
-.landing-overlay{
-  min-height:100vh;
-
-  display:flex;
-
-  justify-content:flex-end;
-
-  align-items:center;
-
-  padding-right:8%;
-
-  background:
-    rgba(0,0,0,0.45);
-}
-
-/* Content */
-
-.landing-content{
-  width:600px;
-
-  color:white;
-
-  text-align:left;
-}
-
-.landing-content h1{
-  font-size:70px;
-  line-height:1.1;
-  margin-bottom:25px;
-}
-
-.landing-content p{
-  font-size:22px;
-  line-height:1.8;
-  margin-bottom:40px;
-}
-
-/* Buttons */
-
-.landing-buttons{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  width:100%;
-}
-
-.landing-btn{
-  text-decoration:none;
-
-  padding:16px;
-
-  border-radius:12px;
-
-  text-align:center;
-
-  font-size:18px;
-
-  font-weight:600;
-
-  transition:0.3s;
-}
-
-.student-btn{
-  background:white;
-  color:#111827;
-}
-
-.student-btn:hover{
-  transform:translateY(-2px);
-}
-
-.admin-btn{
-  background:#ef4444;
-  color:white;
-}
-
-.admin-btn:hover{
-  transform:translateY(-2px);
-}
-
-/* Mobile */
-
-@media(max-width:768px){
-
-  .landing-content h1{
-    font-size:42px;
-  }
-
-  .landing-content p{
-    font-size:18px;
-  }
-
-}
-
-.admin-btn{
-  background:#ef4444;
-  color:white;
-}
-
 .auth-container{
   min-height:100vh;
   display:flex;
@@ -317,287 +201,6 @@
   width:100%;
   padding:12px;
   margin-top:15px;
-}
-
-.password-box{
-  position:relative;
-}
-
-.password-box span{
-  position:absolute;
-  right:10px;
-  top:28px;
-  cursor:pointer;
-}
-
-.register-page{
-  min-height:100vh;
-  display:flex;
-  background:
-  linear-gradient(
-    135deg,
-    #eff6ff,
-    #e0e7ff
-  );
-}
-
-.register-left,
-.register-right{
-  flex:1;
-}
-
-.register-left{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:40px;
-}
-
-.register-left img{
-  width:80%;
-  max-width:450px;
-}
-
-.register-left h1{
-  color:#2563eb;
-}
-
-.register-left p{
-  text-align:center;
-  max-width:400px;
-}
-
-.register-right{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.register-card{
-  width:450px;
-  background:white;
-  padding:40px;
-  border-radius:20px;
-  box-shadow:
-  0 10px 30px
-  rgba(0,0,0,0.1);
-}
-
-.register-card input{
-  width:100%;
-  padding:14px;
-  margin-top:12px;
-}
-
-.register-card button{
-  width:100%;
-  margin-top:20px;
-  padding:14px;
-  border:none;
-  border-radius:10px;
-  background:
-  linear-gradient(
-    90deg,
-    #2563eb,
-    #7c3aed
-  );
-  color:white;
-}
-
-.student-login-page{
-  min-height:100vh;
-
-  background-image:
-    url("./assets/studentloginphoto.jpg");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-
-  position:relative;
-}
-
-.student-login-page::before{
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-
-  background:
-    rgba(0,0,0,0.25);
-}
-
-.student-login-overlay{
-  width:100%;
-
-  display:flex;
-
-  justify-content:flex-end;
-
-  padding-right:120px;
-
-  position:relative;
-
-  z-index:1;
-}
-
-.student-login-card{
-
-  width:420px;
-
-  background:
-    rgba(255,255,255,0.92);
-
-  backdrop-filter: blur(12px);
-
-  padding:40px;
-
-  border-radius:25px;
-
-  box-shadow:
-    0 15px 40px
-    rgba(0,0,0,0.25);
-
-}
-
-.register-text{
-  margin-top:15px;
-  text-align:center;
-}
-
-.register-text a{
-  margin-left:5px;
-  color:#2563eb;
-  font-weight:bold;
-}
-
-.student-login-card h2{
-  text-align:center;
-}
-
-.student-login-card input{
-  width:100%;
-  padding:14px;
-  margin-top:15px;
-}
-
-.student-login-card button{
-  width:100%;
-  margin-top:20px;
-  padding:14px;
-
-  border:none;
-
-  border-radius:10px;
-
-  color:white;
-
-  background:
-  linear-gradient(
-    90deg,
-    #2563eb,
-    #7c3aed
-  );
-}
-
-.admin-login-page{
-  min-height:100vh;
-  display:flex;
-
-  background:
-  linear-gradient(
-    135deg,
-    #1e1b4b,
-    #312e81
-  );
-}
-
-.admin-login-left,
-.admin-login-right{
-  flex:1;
-}
-
-.admin-login-left{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-
-  color:white;
-
-  padding:50px;
-}
-
-.admin-login-left img{
-  width:80%;
-  max-width:450px;
-}
-
-.admin-login-left h1{
-  margin-top:20px;
-}
-
-.admin-login-left p{
-  max-width:400px;
-  text-align:center;
-}
-
-.admin-login-right{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.admin-login-card{
-  width:420px;
-
-  background:white;
-
-  padding:40px;
-
-  border-radius:20px;
-
-  box-shadow:
-  0 10px 30px
-  rgba(0,0,0,0.2);
-}
-
-.admin-login-card h2{
-  text-align:center;
-}
-
-.admin-login-card input{
-  width:100%;
-  padding:14px;
-  margin-top:15px;
-}
-
-.admin-login-card button{
-  width:100%;
-  margin-top:20px;
-  padding:14px;
-
-  border:none;
-
-  border-radius:10px;
-
-  color:white;
-
-  background:
-  linear-gradient(
-    90deg,
-    #7c3aed,
-    #4f46e5
-  );
 }
 
 .layout-container{
@@ -839,5 +442,89 @@
   border-radius:8px;
 
   cursor:pointer;
+
+}
+
+.attendance-summary-card{
+
+  background:white;
+
+  margin:25px 0;
+
+  padding:20px 25px;
+
+  border-radius:15px;
+
+  box-shadow:
+    0 5px 15px
+    rgba(0,0,0,0.08);
+
+}
+
+.attendance-summary-card h3{
+
+  color:#2563eb;
+
+  margin-bottom:15px;
+
+}
+
+.attendance-summary-card p{
+
+  margin:8px 0;
+
+  font-size:16px;
+
+}
+
+.present-option{
+
+  background:#dcfce7;
+
+  color:#15803d;
+
+  padding:10px 18px;
+
+  border-radius:8px;
+
+  font-weight:600;
+
+}
+
+.absent-option{
+
+  background:#fee2e2;
+
+  color:#dc2626;
+
+  padding:10px 18px;
+
+  border-radius:8px;
+
+  font-weight:600;
+
+}
+
+.event-card{
+
+  background:white;
+
+  padding:25px;
+
+  border-radius:15px;
+
+  margin-bottom:20px;
+
+  box-shadow:
+    0 5px 15px
+    rgba(0,0,0,0.08);
+
+  transition:0.3s;
+
+}
+
+.event-card:hover{
+
+  transform:translateY(-3px);
 
 }

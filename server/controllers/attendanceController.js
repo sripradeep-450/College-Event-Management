@@ -90,14 +90,32 @@ exports.getAttendanceByEvent =
 
     try {
 
-      const registrations =
+      const { year } =
+        req.query;
+
+      let registrations =
         await Registration.find({
           eventId:
             req.params.eventId,
-        })
-          .populate(
-            "studentId"
+        }).populate(
+          "studentId"
+        );
+
+      // Filter by year only if a specific year is selected
+      if (
+        year &&
+        year !== "All"
+      ) {
+
+        registrations =
+          registrations.filter(
+            (registration) =>
+              registration.studentId &&
+              registration.studentId.year ===
+                Number(year)
           );
+
+      }
 
       res.status(200).json(
         registrations
